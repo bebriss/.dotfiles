@@ -1,14 +1,14 @@
 set $mod Mod4
 
 ### AUTOSTART ###
-exec --no-startup-id feh --bg-scale ~/pictures/wallpapers/wonder.png
+exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/bg.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id picom
-exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/browser.json;exec firefox'"
-exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/whatsapp.json;exec firefox --new-window web.whatsapp.com'"
-exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec flatpak run com.spotify.Client'"
+#exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/browser.json;exec firefox'"
+#exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/whatsapp.json;exec firefox --new-window web.whatsapp.com'"
+#exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec flatpak run com.spotify.Client'"
 exec --no-startup-id "i3-msg 'workspace 0; append_layout ~/.config/i3/layouts/dev.json;exec alacritty -e tmux'"
-exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/layouts/discord.json;exec flatpak run com.discordapp.Discord'"
+#exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/layouts/discord.json;exec flatpak run com.discordapp.Discord'"
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart

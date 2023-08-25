@@ -6,7 +6,8 @@ alias \
 	mv='mv -iv' \
 	rm='rm -vI' \
 	mkdir='mkdir -pv' \
-	ls='ls -hN --color=auto --group-directories-first' 
+	ls='ls -hN --color=auto --group-directories-first' \
+	ll='ls -lah --color=auto'
 
 # shortcuts
 alias \
