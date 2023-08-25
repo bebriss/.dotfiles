@@ -8,7 +8,7 @@ apt upgrade -y
 
 # ESSENTIAL PROGRAMS
 apt install -y i3-wm feh alacritty rofi pulseaudio pavucontrol build-essential lightdm 
-apt install -y maim xclip picom thunar unzip wget curl gh stow fzf zsh polybar
+apt install -y maim xclip picom thunar unzip wget curl gh stow fzf zsh polybar tmux
 
 # DIRECTORIES
 cd $builddir
@@ -19,15 +19,25 @@ mkdir -p /home/$username/Pictures/backgrounds
 cp bg.png /home/$username/Pictures/backgrounds/
 
 # NVIM
-#cd /home/$username
-#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-#tar xzvf nvim-linux64.tar.gz
-#sudo cp nvim-linux64/bin/* /usr/bin/
-#sudo cp -r nvim-linux64/lib/* /usr/lib/
-#sudo cp -r nvim-linux64/share/* /usr/share/
-#sudo update-icon-caches /usr/share/icons/*
-#rm nvim-linux64.tar.gz
-#rm -rf nvim-linux64
+cd /home/$username
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz
+sudo cp nvim-linux64/bin/* /usr/bin/
+sudo cp -r nvim-linux64/lib/* /usr/lib/
+sudo cp -r nvim-linux64/share/* /usr/share/
+sudo update-icon-caches /usr/share/icons/*
+rm nvim-linux64.tar.gz
+rm -rf nvim-linux64
+
+# SPOTIFY
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+apt-get update && sudo apt-get -y install spotify-client
+
+# DISCORD
+wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
+apt install -y ./discord.deb
+rm discord.deb
 
 # FONTS 
 cd $builddir 

@@ -3,7 +3,7 @@ set $mod Mod4
 ### AUTOSTART ###
 exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/bg.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-#exec --no-startup-id picom
+exec --no-startup-id picom
 #exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/browser.json;exec firefox'"
 #exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/whatsapp.json;exec firefox --new-window web.whatsapp.com'"
 #exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec flatpak run com.spotify.Client'"
@@ -19,7 +19,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/pictures/background/bg.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/Pictures/background/bg.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -52,13 +52,11 @@ bindsym $mod+Return exec alacritty
 #bindsym $mod+s
 #bindsym $mod+w
 #bindsym $mod+e
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+space floating toggle
+bindsym $mod+Shift+space focus mode_toggle
 #bindsym $mod+a focus parent
 
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-
 
 ### I3 CONTROLS ###
 
@@ -158,8 +156,5 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-### i3-gaps ###
 for_window [class="^.*"] border pixel 1 
-#gaps inner 5
-#gaps outer 5
 
