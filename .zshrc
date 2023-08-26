@@ -13,12 +13,12 @@ alias \
 alias \
     nv='nvim' \
 	sus='sleep 1 && systemctl suspend' \
-	disc='flatpak run com.discordapp.Discord' \
-	spot='flatpak run com.spotify.Client' \
-    cfzs='nvim ~/.zshrc' \
-	cfal='nvim ~/.config/alacritty/alacritty.yml' \
-	cfi3='nvim ~/.config/i3/config' \
-	cfpb='nvim ~/.config/polybar/config.ini'
+    cf='tmux new-window -c ~/.dotfiles' \
+    cfrr='tmux new-window "cd ~/.dotfiles && ./config.sh"' \
+    cfzs='nvim ~/.dotfiles/.zshrc' \
+	cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.yml' \
+	cfi3='nvim ~/.dotfiles/.config/i3/config' \
+	cfpb='nvim ~/.dotfiles/.config/polybar/config.ini'
 
 # history cache / size
 HISTFILE=~/.histfile
