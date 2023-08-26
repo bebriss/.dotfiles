@@ -8,11 +8,11 @@ exec --no-startup-id picom
 
 ### WORKSPACES AUTOSTART ###
 
-exec_always --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/web.json;exec chromium'"
-exec_always --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/web.json;exec chromium --new-window web.whatsapp.com'"
-exec_always --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/layouts/discord.json;exec discord'"
-exec_always --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec spotify'"
-exec_always --no-startup-id "i3-msg 'workspace 0; append_layout ~/.config/i3/layouts/dev.json;exec alacritty -e tmux'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/web.json;exec chromium'"
+exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/web.json;exec chromium --new-window web.whatsapp.com'"
+exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/layouts/discord.json;exec discord'"
+exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec spotify'"
+exec --no-startup-id "i3-msg 'workspace 0; append_layout ~/.config/i3/layouts/dev.json;exec alacritty -e tmux'"
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
