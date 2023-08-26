@@ -3,17 +3,17 @@
     "current_border_width": 1,
     "floating": "auto_off",
     "geometry": {
-       "height": 600,
-       "width": 800,
-       "x": 0,
-       "y": 0
+       "height": 1046,
+       "width": 638,
+       "x": 1281,
+       "y": 33
     },
     "marks": [],
-    "name": "Alacritty",
+    "name": "New Tab - Chromium",
     "percent": 1,
     "swallows": [
        {
-       "class": "^Alacritty$"
+       "class": "^Chromium$"
        }
     ],
     "type": "con"

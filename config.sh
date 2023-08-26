@@ -19,5 +19,3 @@ done
 
 cp -rf scripts /home/$username/
 cp -rf .zshrc /home/$username/
-chsh -s $(which zsh)
-

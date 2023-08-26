@@ -7,8 +7,8 @@ apt update
 apt upgrade -y
 
 # ESSENTIAL PROGRAMS
-apt install -y i3-wm feh alacritty rofi pulseaudio pavucontrol build-essential lightdm 
-apt install -y maim xclip picom thunar unzip wget curl gh stow fzf zsh polybar tmux
+apt install -y i3-wm feh alacritty rofi lightdm polybar tmux ranger pulseaudio picom gh chromium
+apt install -y maim xclip thunar unzip wget curl stow zsh pavucontrol build-essential
 
 # DIRECTORIES
 cd $builddir
@@ -48,10 +48,10 @@ chown $username:$username /home/$username/.fonts/*
 fc-cache -vf
 rm ./JetBrainsMono.zip
 
-# TPM
+# TMUX PLUGIN MANAGER
 git clone https://github.com/tmux-plugins/tpm /home/$username/.tmux/plugins/tpm
 
-# NVCHAD
+# NVCHAD NVIM DISTRIBUTION
 git clone https://github.com/NvChad/NvChad /home/$username/.config/nvim --depth 1
 
 chown -R $username:$username /home/$username
