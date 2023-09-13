@@ -5,6 +5,21 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+    {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      mapping = {
+        -- disable  tab
+        ["<Tab>"] = function(callback)
+          callback()
+        end,
+
+        ["<S-Tab>"] = function(callback)
+          callback()
+        end,
+      }
+    }
+  },
   {
     "williamboman/mason.nvim",
     opts = {

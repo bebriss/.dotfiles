@@ -8,10 +8,10 @@ exec --no-startup-id picom
 
 ### WORKSPACES AUTOSTART ###
 
-exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/web.json;exec chromium'"
-exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/web.json;exec chromium --new-window web.whatsapp.com'"
 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layouts/spotify.json;exec spotify'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/layouts/web.json;exec chromium --new-window'"
 exec --no-startup-id "i3-msg 'workspace 0; append_layout ~/.config/i3/layouts/dev.json;exec alacritty -e tmux'"
+exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/layouts/web.json;exec chromium --new-window web.whatsapp.com'"
 exec --no-startup-id "i3-msg 'workspace 9; append_layout ~/.config/i3/layouts/discord.json;exec discord'"
 
 # Start XDG autostart .desktop files using dex. See also

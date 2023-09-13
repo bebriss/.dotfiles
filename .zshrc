@@ -12,6 +12,8 @@ alias \
 # shortcuts
 alias \
     nv='nvim' \
+    python=python3 \
+    pip=pip3 \
 	sus='sleep 1 && systemctl suspend' \
     cf='tmux new-window -c ~/.dotfiles' \
     cfrr='tmux new-window "cd ~/.dotfiles && ./config.sh"' \
@@ -50,8 +52,6 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
