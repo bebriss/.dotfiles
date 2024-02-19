@@ -6,9 +6,9 @@ builddir=$(pwd)
 DIR="$builddir/.config"
 
 for dir in "$DIR"/*; do
-  mkdir -p "/home/$username/.config/"
-  cp -rf "$dir" "/home/$username/.config/"
+	mkdir -p "/home/$username/.config/"
+	cp -rf "$dir" "/home/$username/.config/"
 done
 
-cp -rf scripts /home/$username/
+cp -rf scripts /home/$username/.local/bin/
 cp -rf .zshrc /home/$username/
