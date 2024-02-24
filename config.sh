@@ -10,5 +10,5 @@ for dir in "$DIR"/*; do
 	cp -rf "$dir" "/home/$username/.config/"
 done
 
-cp -rf scripts /home/$username/.local/bin/
+cp -rf scripts/* /home/$username/.local/bin/
 cp -rf .zshrc /home/$username/

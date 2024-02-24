@@ -1,22 +1,52 @@
 #!/bin/bash
 
-# Check if DP-1-5 is connected
-dp_connected=$(xrandr --query | grep 'DP-1-5 connected')
+# Function to get connected monitors
+get_connected_monitors() {
+	xrandr --query | grep " connected" | awk '{print $1}'
+}
 
-# Check if DP-1-5 is currently the active primary monitor
-dp_active=$(xrandr --query | grep 'DP-1-5 connected primary')
+# Function for automatic configuration
+auto_configure() {
+	local monitors=($(get_connected_monitors))
+	local count=${#monitors[@]}
 
-if [[ ! -z $dp_connected ]]; then
-	if [[ -z $dp_active ]]; then
-		# DP-1-5 is connected but not active, switch to DP-1-5
-		xrandr --output DP-1-5 --auto --primary
-		xrandr --output eDP-1 --off
+	# If only the laptop screen is connected
+	if [ "$count" -eq 1 ]; then
+		xrandr --output ${monitors[0]} --auto --primary
+	elif [ "$count" -eq 2 ]; then
+		# Assuming the first is the laptop and the second is the external monitor
+		xrandr --output ${monitors[0]} --off --output ${monitors[1]} --auto --primary
 	else
-		# DP-1-5 is connected and active, switch back to eDP-1
-		xrandr --output eDP-1 --auto --primary
-		xrandr --output DP-1-5 --off
+		# More complex setup, prompt for manual selection
+		manual_selection
 	fi
+}
+
+# Function for manual selection via dmenu
+manual_selection() {
+	local monitors=($(get_connected_monitors))
+	local selected=$(printf "%s\n" "${monitors[@]}" | dmenu -i -p "Select primary display:")
+
+	# Enable selected monitor as primary, turn off others
+	for monitor in "${monitors[@]}"; do
+		if [ "$monitor" == "$selected" ]; then
+			xrandr --output "$monitor" --auto --primary
+		else
+			xrandr --output "$monitor" --off
+		fi
+	done
+}
+
+# Main logic
+monitors=($(get_connected_monitors))
+if [ ${#monitors[@]} -gt 1 ]; then
+	# If more than one monitor is connected, ask the user
+	choice=$(echo -e "Auto-configure\nManual selection" | dmenu -i -p "Choose an option:")
+	case $choice in
+	"Auto-configure") auto_configure ;;
+	"Manual selection") manual_selection ;;
+	esac
 else
-	# DP-1-5 is not connected, make sure eDP-1 is active
-	xrandr --output eDP-1 --auto --primary
+	# If only one monitor is connected, automatically use it
+	auto_configure
 fi
