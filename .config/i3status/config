@@ -9,24 +9,29 @@ order += "load"
 #order += "run_watch DHCP"
 #order += "run_watch VPNC"
 #order += "path_exists VPN"
-#order += "ethernet eth0"
-#order += "cpu_temperature 0"
+order += "cpu_temperature 0"
 order += "memory"
 order += "disk /"
 order += "wireless wlan0"
+order += "ethernet eth0"
+order += "ethernet enp60s0u1u1c2"
 order += "tztime local"
 #order += "tztime berlin"
 
 wireless wlan0 {
         #format_up = "W: (%quality at %essid, %bitrate) %ip"
-        format_up = "%bitrate @ %ip"
-        format_down = "NO INTERNET"
-
+        format_up = "%ip @ %bitrate"
+        format_down = "W"
 }
 
-ethernet eth0 {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+#ethernet eth0 {
+#        format_up = "%ip @ %speed"
+#        format_down = "E"
+#}
+
+ethernet enp60s0u1u1c2 {
+        format_up = "%ip @ %speed"
+        format_down = "E"
 }
 
 battery 0 {
@@ -41,38 +46,38 @@ battery 0 {
         low_threshold = 20
 }
 
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
-}
-
-run_watch VPNC {
-        # file containing the PID of a vpnc process
-        pidfile = "/var/run/vpnc/pid"
-}
-
-path_exists VPN {
-        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
-        path = "/proc/sys/net/ipv4/conf/tun0"
-}
+#run_watch DHCP {
+#        pidfile = "/var/run/dhclient*.pid"
+#}
+#
+#run_watch VPNC {
+#        # file containing the PID of a vpnc process
+#        pidfile = "/var/run/vpnc/pid"
+#}
+#
+#path_exists VPN {
+#        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+#        path = "/proc/sys/net/ipv4/conf/tun0"
+#}
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%m-%d %H:%M"
         #hide_if_equals_localtime = true
 }
 
-tztime berlin {
-        format = "%Y-%m-%d %H:%M:%S %Z"
-        timezone = "Europe/Berlin"
-}
+#tztime berlin {
+#        format = "%Y-%m-%d %H:%M:%S %Z"
+#        timezone = "Europe/Berlin"
+#}
 
 load {
         format = "Load: %1min"
 }
 
-cpu_temperature 0 {
-        format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/temp1_input"
-}
+#cpu_temperature 0 {
+#        format = "T: %degrees °C"
+#        path = "/sys/devices/platform/coretemp.0/temp1_input"
+#}
 
 memory {
         format = "RAM: %percentage_used"
