@@ -1,6 +1,7 @@
 # Inspired by Luke's config for the Zoomer Shell
+export EDITOR=nvim
 
-# verbosity and command settings 
+# verbosity and command settings
 alias \
 	cp='cp -iv' \
 	mv='mv -iv' \
@@ -31,7 +32,17 @@ rangercd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'rangercd\n'
+# Define a widget for rangercd
+rangercd-widget() {
+    rangercd
+    #zle reset-prompt  # Optional: Refresh the prompt to reflect the new directory
+}
+
+# Tell Zsh about the new widget
+zle -N rangercd-widget
+
+# Bind Ctrl+O to an anonymous function that calls rangercd
+bindkey '^o' '(){ rangercd; }'
 
 # autocomplete 
 autoload -U compinit
@@ -54,6 +65,7 @@ bindkey '^e' edit-command-line
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -65,6 +77,4 @@ HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
 
- 
-
-
+export PATH="$PATH:/opt/nvim/"

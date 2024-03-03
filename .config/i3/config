@@ -7,9 +7,9 @@ exec --no-startup-id xset s on
 
 ### KEYBOARD AUDIO ###
 
-#bindsym XF86AudioRaiseVolume exec ~/scripts/volume.sh raise && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec ~/scripts/volume.sh lower && $refresh_i3status
-#bindsym XF86AudioMute exec ~/scripts/volume.sh mute && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec ~/scripts/volume.sh raise && $refresh_i3status
+bindsym XF86AudioLowerVolume exec ~/scripts/volume.sh lower && $refresh_i3status
+bindsym XF86AudioMute exec ~/scripts/volume.sh mute && $refresh_i3status
 
 ### SCREENSHOTS - maim xclip copyq ###
 
@@ -27,6 +27,10 @@ exec --no-startup-id xset s on
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pavucontrol"] move position center
 for_window [class="Pavucontrol"] resize set 800 800
+
+for_window [class="feh"] floating enable
+for_window [class="feh"] move position center
+for_window [class="feh"] resize set 800 800
 
 for_window [class="Chromium"] move container to workspace 2
 for_window [class="Discord"] move container to workspace 9
