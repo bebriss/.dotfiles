@@ -12,8 +12,6 @@ alias \
 
 # shortcuts
 alias \
-  python=python3 \
-  pip=pip3 \
   sus='sleep 1 && systemctl suspend' \
   nv='nvim' \
   cf='tmux new-window -c ~/.dotfiles' \
@@ -22,28 +20,15 @@ alias \
   cfi3='nvim ~/.dotfiles/.config/i3/config' \
   cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml'
 
-# cd through ranger
-rangercd () {
-    tmp="$(mktemp)"
-    ranger --choosedir="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
-# Define a widget for rangercd
-rangercd-widget() {
-    rangercd
-    #zle reset-prompt  # Optional: Refresh the prompt to reflect the new directory
-}
-
-# Tell Zsh about the new widget
-zle -N rangercd-widget
-
-# Bind Ctrl+O to an anonymous function that calls rangercd
-bindkey '^o' '(){ rangercd; }'
-
+#
 # autocomplete 
 autoload -U compinit
 zstyle ':completion:*' menu select
