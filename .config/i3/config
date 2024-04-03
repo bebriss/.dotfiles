@@ -29,8 +29,8 @@ for_window [class="Pavucontrol"] move position center
 for_window [class="Pavucontrol"] resize set 800 800
 
 for_window [class="feh"] floating enable
+# for_window [class="feh"] resize set 1600 900
 for_window [class="feh"] move position center
-for_window [class="feh"] resize set 800 800
 
 for_window [class="Chromium"] move container to workspace 2
 for_window [class="Discord"] move container to workspace 9
@@ -51,6 +51,7 @@ bindsym $mod+Shift+space focus mode_toggle
 
 bindsym $mod+p exec "systemctl suspend"
 bindsym $mod+Shift+p exec "systemctl poweroff"
+bindsym $mod+Shift+b exec "sudo timeshift --create && sudo grub-mkconfig -o /boot/grub/grub.cfg"
 bindsym $mod+m exec ~/.local/bin/display.sh
 bindsym $mod+w exec chromium
 bindsym $mod+d exec dmenu_run
