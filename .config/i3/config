@@ -24,9 +24,9 @@ bindsym XF86AudioMute exec ~/scripts/volume.sh mute && $refresh_i3status
 ### WORKSPACES & WINDOWS ###
 
 #use xprop to determine class
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] move position center
-for_window [class="Pavucontrol"] resize set 800 800
+for_window [class="pavucontrol"] floating enable
+for_window [class="pavucontrol"] resize set 800 800
+for_window [class="pavucontrol"] move position center
 
 for_window [class="feh"] floating enable
 # for_window [class="feh"] resize set 1600 900
