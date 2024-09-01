@@ -7,6 +7,10 @@ exec --no-startup-id xset s on
 
 ### KEYBOARD AUDIO ###
 
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioRaiseVolume exec ~/scripts/volume.sh raise && $refresh_i3status
 bindsym XF86AudioLowerVolume exec ~/scripts/volume.sh lower && $refresh_i3status
 bindsym XF86AudioMute exec ~/scripts/volume.sh mute && $refresh_i3status
