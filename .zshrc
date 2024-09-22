@@ -8,19 +8,16 @@ alias \
 	rm='rm -vI' \
 	mkdir='mkdir -pv' \
 	ls='ls -hN --color=auto --group-directories-first' \
-	ll='ls -lah --color=auto'
-
-# shortcuts
-alias \
-  sus='sleep 1 && systemctl suspend' \
+	ll='ls -lah --color=auto' \
   nv='nvim' \
   cf='tmux new-window -c ~/.dotfiles' \
   cfr='tmux new-window "cd ~/.dotfiles && ./config.sh"' \
   cfzs='nvim ~/.dotfiles/.zshrc' \
   cfi3='nvim ~/.dotfiles/.config/i3/config' \
-  cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml'
+  cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml' \
+  bc='bluetoothctl connect AC:80:0A:AB:71:D9'
 
-function yy() {
+function ff() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -63,3 +60,7 @@ SAVEHIST=1000
 bindkey -v
 
 export PATH="$PATH:/opt/nvim/"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
