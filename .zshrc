@@ -15,7 +15,8 @@ alias \
   cfzs='nvim ~/.dotfiles/.zshrc' \
   cfi3='nvim ~/.dotfiles/.config/i3/config' \
   cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml' \
-  bc='bluetoothctl connect AC:80:0A:AB:71:D9'
+  bc='bluetoothctl connect AC:80:0A:AB:71:D9' \
+  get_idf='. $HOME/esp/esp-idf/export.sh'
 
 function ff() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
