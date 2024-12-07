@@ -53,7 +53,7 @@ bindsym $mod+Shift+space focus mode_toggle
 
 ### SHORTCUTS ###
 
-bindsym $mod+p exec "systemctl suspend"
+bindsym $mod+p exec "umount ~/mnt && systemctl suspend"
 bindsym $mod+Shift+p exec "systemctl poweroff"
 bindsym $mod+Shift+b exec "sudo timeshift --create && sudo grub-mkconfig -o /boot/grub/grub.cfg"
 bindsym $mod+m exec ~/.local/bin/display.sh
