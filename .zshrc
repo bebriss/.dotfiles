@@ -9,13 +9,14 @@ alias \
 	mkdir='mkdir -pv' \
 	ls='ls -hN --color=auto --group-directories-first' \
 	ll='ls -lah --color=auto' \
-  nv='nvim' \
+  nv='nvim .' \
   cf='tmux new-window -c ~/.dotfiles' \
   cfr='tmux new-window "cd ~/.dotfiles && ./config.sh"' \
   cfzs='nvim ~/.dotfiles/.zshrc' \
   cfi3='nvim ~/.dotfiles/.config/i3/config' \
   cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml' \
   bc='bluetoothctl connect AC:80:0A:AB:71:D9' \
+  bc='bluetoothctl disconnect AC:80:0A:AB:71:D9' \
   get_idf='. $HOME/esp/esp-idf/export.sh'
 
 function ff() {
@@ -48,7 +49,6 @@ bindkey '^e' edit-command-line
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
