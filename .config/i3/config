@@ -53,15 +53,15 @@ bindsym $mod+Shift+space focus mode_toggle
 
 ### SHORTCUTS ###
 
-bindsym $mod+p exec "umount ~/mnt && systemctl suspend"
+bindsym $mod+p exec "systemctl suspend"
 bindsym $mod+Shift+p exec "systemctl poweroff"
 bindsym $mod+Shift+b exec "sudo timeshift --create && sudo grub-mkconfig -o /boot/grub/grub.cfg"
 bindsym $mod+m exec ~/.local/bin/display.sh
 bindsym $mod+w exec chromium
 bindsym $mod+d exec dmenu_run
 bindsym $mod+Shift+v exec "pavucontrol"
-bindsym $mod+Shift+Return exec alacritty
-bindsym $mod+Return exec "alacritty -e tmux new-session"
+bindsym $mod+Shift+Return exec ghostty
+bindsym $mod+Return exec "ghostty -e tmux new-session"
 
 ### DEFAULTS ###
 

@@ -1,0 +1,11 @@
+window-decoration=false
+theme=catppuccin-mocha
+font-family=JetBrainsMonoNerdFont
+font-size=10
+font-style=Medium
+window-padding-x=5
+window-padding-y=5
+window-theme=ghostty
+gtk-titlebar = false
+gtk-adwaita = false
+
