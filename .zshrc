@@ -13,8 +13,7 @@ alias \
   cf='tmux new-window -c ~/.dotfiles' \
   cfr='tmux new-window "cd ~/.dotfiles && ./config.sh"' \
   cfzs='nvim ~/.dotfiles/.zshrc' \
-  cfi3='nvim ~/.dotfiles/.config/i3/config' \
-  cfal='nvim ~/.dotfiles/.config/alacritty/alacritty.toml' \
+  cfwm='nvim ~/.dotfiles/.config/hypr/hyprland.conf' \
   bc='bluetoothctl connect AC:80:0A:AB:71:D9' \
   bd='bluetoothctl disconnect AC:80:0A:AB:71:D9' \
   get_idf='. $HOME/esp/esp-idf/export.sh'
@@ -27,7 +26,7 @@ function ff() {
 	fi
 	rm -f -- "$tmp"
 }
-#
+
 # autocomplete 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -60,8 +59,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
 
-export PATH="$PATH:/opt/nvim/"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PATH="$PATH:/opt/nvim/"
+#
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
